@@ -1,0 +1,78 @@
+{
+  "lastUpdated": "2023-10-20",
+  "totalFiles": 8,
+  "files": [
+    {
+      "name": "sample-document.pdf",
+      "size": "2.4 MB",
+      "type": "pdf",
+      "description": "示例PDF文档，展示文件下载功能",
+      "url": "files/sample-document.pdf",
+      "date": "2023-10-15",
+      "category": "文档"
+    },
+    {
+      "name": "presentation.pptx",
+      "size": "5.7 MB",
+      "type": "pptx",
+      "description": "演示文稿模板文件",
+      "url": "files/presentation.pptx",
+      "date": "2023-10-10",
+      "category": "演示"
+    },
+    {
+      "name": "data-report.xlsx",
+      "size": "1.8 MB",
+      "type": "xlsx",
+      "description": "数据报告示例文件",
+      "url": "files/data-report.xlsx",
+      "date": "2023-10-12",
+      "category": "数据"
+    },
+    {
+      "name": "project-code.zip",
+      "size": "15.2 MB",
+      "type": "zip",
+      "description": "项目源代码压缩包示例",
+      "url": "files/project-code.zip",
+      "date": "2023-10-08",
+      "category": "代码"
+    },
+    {
+      "name": "design-sketch.png",
+      "size": "3.1 MB",
+      "type": "png",
+      "description": "设计图稿示例文件",
+      "url": "files/design-sketch.png",
+      "date": "2023-10-05",
+      "category": "设计"
+    },
+    {
+      "name": "config-instructions.txt",
+      "size": "45 KB",
+      "type": "txt",
+      "description": "配置文件说明文档",
+      "url": "files/config-instructions.txt",
+      "date": "2023-10-03",
+      "category": "文档"
+    },
+    {
+      "name": "installation-guide.pdf",
+      "size": "1.2 MB",
+      "type": "pdf",
+      "description": "软件安装指南文档",
+      "url": "files/installation-guide.pdf",
+      "date": "2023-09-28",
+      "category": "指南"
+    },
+    {
+      "name": "user-feedback.csv",
+      "size": "320 KB",
+      "type": "csv",
+      "description": "用户反馈数据示例",
+      "url": "files/user-feedback.csv",
+      "date": "2023-09-25",
+      "category": "数据"
+    }
+  ]
+}

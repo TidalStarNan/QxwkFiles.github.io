@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>静态文件下载站 - GitHub Pages</title>
+    <meta name="description" content="基于GitHub Pages的静态文件下载站，无需后端即可提供文件下载服务">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1><i class="fas fa-cloud-download-alt"></i> 静态文件下载站</h1>
+                <p class="subtitle">基于 GitHub Pages 构建 | 无需服务器 | 完全免费</p>
+                <div class="header-badges">
+                    <a href="https://pages.github.com" target="_blank" class="github-badge">
+                        <i class="fab fa-github"></i> GitHub Pages
+                    </a>
+                    <span class="file-count-badge" id="fileCount">
+                        <i class="fas fa-file"></i> 加载中...
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <div class="info-box">
+            <div class="info-content">
+                <h3><i class="fas fa-info-circle"></i> 使用说明</h3>
+                <p><strong>工作原理：</strong> 本页面托管于GitHub Pages，所有文件都存储在GitHub仓库中。由于GitHub Pages是静态服务，文件列表需要预先在<code>files.json</code>中定义。</p>
+                <p><strong>如何添加文件：</strong> 将文件上传到仓库的<code>files/</code>目录，然后更新<code>files.json</code>中的文件列表即可。</p>
+            </div>
+        </div>
+
+        <div class="dashboard">
+            <div class="search-section">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-box" id="searchInput" placeholder="搜索文件名、类型或描述...">
+                    <button class="clear-search" id="clearSearch" title="清除搜索">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="sort-controls">
+                    <label for="sortSelect">排序方式：</label>
+                    <select id="sortSelect" class="sort-select">
+                        <option value="date-desc">最近更新</option>
+                        <option value="date-asc">最早更新</option>
+                        <option value="name-asc">名称 (A-Z)</option>
+                        <option value="name-desc">名称 (Z-A)</option>
+                        <option value="size-desc">大小 (大→小)</option>
+                        <option value="size-asc">大小 (小→大)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="file-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-folder-open"></i> 文件列表</h2>
+                    <div class="section-stats">
+                        <span id="filteredCount">0</span> / <span id="totalCount">0</span> 个文件
+                    </div>
+                </div>
+                
+                <div class="file-grid" id="fileList">
+                    <!-- 文件列表将通过JavaScript动态生成 -->
+                </div>
+                
+                <div id="noResults" class="no-results">
+                    <!-- 内容由JavaScript动态生成 -->
+                </div>
+                
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>正在加载文件列表...</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-cloud-download-alt fa-2x"></i>
+                    <span>静态文件下载站</span>
+                </div>
+                <p class="footer-description">
+                    一个基于GitHub Pages的静态文件托管解决方案<br>
+                    无需服务器，完全免费，部署简单
+                </p>
+                <div class="footer-links">
+                    <a href="README.md"><i class="fas fa-book"></i> 文档</a>
+                    <a href="https://github.com"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="mailto:example@example.com"><i class="fas fa-envelope"></i> 联系</a>
+                </div>
+                <p class="footer-copyright">
+                    © 2023 静态文件下载站 | 基于 GitHub Pages 构建
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
