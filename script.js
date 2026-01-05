@@ -275,10 +275,11 @@ function createFileCard(file) {
  * 初始化事件监听器
  */
 function initEventListeners() {
-    // 搜索框输入事件
     const searchInput = document.getElementById('searchInput');
     const clearSearchBtn = document.getElementById('clearSearch');
+    const sortSelect = document.getElementById('sortSelect');
     
+    // 搜索框输入事件
     searchInput.addEventListener('input', function(e) {
         filterFiles(e.target.value);
         
@@ -299,7 +300,6 @@ function initEventListeners() {
     });
     
     // 排序选择器
-    const sortSelect = document.getElementById('sortSelect');
     sortSelect.value = currentSort; // 默认选中"最近更新"
     sortSelect.addEventListener('change', function(e) {
         currentSort = e.target.value;
@@ -307,15 +307,16 @@ function initEventListeners() {
         renderFileList();
     });
     
-    // 显示所有文件按钮
-    const showAllBtn = document.getElementById('showAllBtn');
-    if (showAllBtn) {
-        showAllBtn.addEventListener('click', function() {
+    // BUG修复：使用事件委托机制处理动态生成的showAllBtn按钮点击事件
+    // 该按钮在搜索结果为空时才会被创建，静态绑定会导致事件失效
+    document.addEventListener('click', function(e) {
+        if (e.target && e.target.id === 'showAllBtn') {
             searchInput.value = '';
             filterFiles('');
             clearSearchBtn.style.display = 'none';
-        });
-    }
+            searchInput.focus();
+        }
+    });
 }
 
 /**
