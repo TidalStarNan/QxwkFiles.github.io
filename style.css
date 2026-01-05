@@ -1,5 +1,3 @@
-[file name]: style.css
-[file content begin]
 /* 基础样式重置 */
 * {
     margin: 0;
@@ -254,29 +252,28 @@ h1 i {
     color: #475569;
 }
 
-/* 文件网格 - 横向排列的文件卡片 */
+/* 文件网格 - 纵向排列 */
 .file-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 25px;
     margin-bottom: 30px;
 }
 
 .file-card {
     background: white;
     border-radius: 15px;
-    padding: 20px;
+    padding: 25px;
     transition: all 0.3s ease;
     border: 2px solid #f1f5f9;
     display: flex;
-    align-items: center;
-    gap: 20px;
+    flex-direction: column;
     position: relative;
     overflow: hidden;
 }
 
 .file-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.01);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     border-color: #3b82f6;
 }
@@ -291,77 +288,52 @@ h1 i {
     background: linear-gradient(90deg, #3b82f6, #8b5cf6);
 }
 
-/* 左侧：图标和文件信息 */
-.file-card-left {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex: 1;
-    min-width: 0; /* 防止内容溢出 */
-}
-
 .file-icon {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: #3b82f6;
-    flex-shrink: 0;
-    width: 60px;
+    margin-bottom: 20px;
     text-align: center;
-}
-
-.file-info {
-    flex: 1;
-    min-width: 0; /* 防止内容溢出 */
 }
 
 .file-name {
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: #1e293b;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1.4;
     word-break: break-word;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    text-align: center;
 }
 
 .file-description {
     color: #64748b;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    text-align: center;
 }
 
 .file-meta {
     display: flex;
-    gap: 15px;
-    font-size: 0.85rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
     color: #64748b;
+}
+
+.file-size {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 600;
 }
 
 .file-date {
     display: flex;
     align-items: center;
     gap: 5px;
-}
-
-.file-size {
-    background: #e0f2fe;
-    color: #0369a1;
-    padding: 3px 10px;
-    border-radius: 15px;
-    font-weight: 600;
-    font-size: 0.85rem;
-}
-
-/* 右侧：下载按钮 */
-.file-card-right {
-    flex-shrink: 0;
-    width: 120px;
 }
 
 .download-btn {
@@ -372,16 +344,15 @@ h1 i {
     background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
     color: white;
     text-decoration: none;
-    padding: 12px 20px;
+    padding: 14px 20px;
     border-radius: 10px;
     font-weight: 600;
+    margin-top: 20px;
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: 1rem;
     text-align: center;
-    width: 100%;
-    white-space: nowrap;
 }
 
 .download-btn:hover {
@@ -570,32 +541,12 @@ footer {
         gap: 20px;
     }
     
-    .dashboard {
+    .file-card {
         padding: 20px;
     }
     
-    /* 平板设备上的文件卡片调整 */
-    .file-card {
-        padding: 15px;
-        gap: 15px;
-    }
-    
-    .file-card-left {
-        gap: 15px;
-    }
-    
-    .file-icon {
-        font-size: 2rem;
-        width: 50px;
-    }
-    
-    .file-card-right {
-        width: 100px;
-    }
-    
-    .download-btn {
-        padding: 10px 15px;
-        font-size: 0.9rem;
+    .dashboard {
+        padding: 20px;
     }
 }
 
@@ -604,45 +555,14 @@ footer {
         font-size: 1.8rem;
     }
     
-    /* 手机设备上的文件卡片调整 */
-    .file-card {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 15px;
-        padding: 20px;
-    }
-    
-    .file-card-left {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 15px;
-    }
-    
-    .file-icon {
-        width: auto;
-        font-size: 2.5rem;
-    }
-    
     .file-meta {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         gap: 10px;
     }
     
     .file-size, .file-date {
         width: 100%;
-        justify-content: center;
-    }
-    
-    .file-card-right {
-        width: 100%;
-    }
-    
-    .download-btn {
-        width: 100%;
-        padding: 14px 20px;
-        font-size: 1rem;
+        justify-content: space-between;
     }
 }
-[file content end]
