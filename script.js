@@ -1,3 +1,5 @@
+[file name]: script.js
+[file content begin]
 /**
  * 静态文件下载站 - 交互脚本
  * 负责文件列表的加载、搜索、排序和显示
@@ -250,22 +252,28 @@ function createFileCard(file) {
     const color = getFileColor(file.name);
     
     card.innerHTML = `
-        <div class="file-icon" style="color: ${color};">
-            <i class="${icon}"></i>
-        </div>
-        <div class="file-name">${escapeHtml(file.name)}</div>
-        <div class="file-description">${escapeHtml(file.description)}</div>
-        <div class="file-meta">
-            <div class="file-date">
-                <i class="far fa-calendar-alt"></i>
-                <span>${file.date}</span>
+        <div class="file-card-left">
+            <div class="file-icon" style="color: ${color};">
+                <i class="${icon}"></i>
             </div>
-            <div class="file-size">${file.size}</div>
+            <div class="file-info">
+                <div class="file-name">${escapeHtml(file.name)}</div>
+                <div class="file-description">${escapeHtml(file.description)}</div>
+                <div class="file-meta">
+                    <div class="file-date">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>${file.date}</span>
+                    </div>
+                    <div class="file-size">${file.size}</div>
+                </div>
+            </div>
         </div>
-        <a href="${file.url}" class="download-btn" download="${file.name}">
-            <i class="fas fa-download"></i>
-            下载文件
-        </a>
+        <div class="file-card-right">
+            <a href="${file.url}" class="download-btn" download="${file.name}">
+                <i class="fas fa-download"></i>
+                下载文件
+            </a>
+        </div>
     `;
     
     return card;
@@ -463,3 +471,4 @@ function escapeHtml(text) {
     div.textContent = text;
     return div.innerHTML;
 }
+[file content end]
